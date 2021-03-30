@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
 using System.Net.Http;
+using System.Globalization;
 
 namespace LabNet2._2
 {
@@ -42,8 +43,15 @@ namespace LabNet2._2
                 a.SubItems.Add(x.Value.ToString());
                 listView1.Items.Add(a);
             }
+            foreach(var item in data.Rates.Keys)
+            {
+                comboBoxChooseCurrency.Items.Add(item);
+            }
 
+            
         }
+
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -51,11 +59,50 @@ namespace LabNet2._2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            load();
+            load();  
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxChooseCurrency_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBoxRateOfThisCurrency.Text = listView1.Items[comboBoxChooseCurrency.SelectedIndex].SubItems[1].Text;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxRateOfThisCurrency_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            NumberFormatInfo provider = new NumberFormatInfo();
+            provider.NumberDecimalSeparator = ".";
+            provider.NumberGroupSeparator = ",";
+            int numberWritten = Int32.Parse(textBox1.Text);
+            double exchangeRate = Double.Parse(textBoxRateOfThisCurrency.Text,provider);
+            textBoxResultOfCalculating.Text = (numberWritten * exchangeRate).ToString();
+
+                //Items[comboBoxChooseCurrency.SelectedIndex].SubItems[1].Text;
+
 
         }
     }
