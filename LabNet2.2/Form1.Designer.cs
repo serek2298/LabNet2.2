@@ -41,7 +41,8 @@ namespace LabNet2._2
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxResultOfCalculating = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.buttonSaveToDataBase = new System.Windows.Forms.Button();
+            this.textBoxShowLog = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -92,7 +93,7 @@ namespace LabNet2._2
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(372, 9);
+            this.label1.Location = new System.Drawing.Point(365, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(117, 17);
             this.label1.TabIndex = 5;
@@ -101,7 +102,7 @@ namespace LabNet2._2
             // 
             // textBoxRateOfThisCurrency
             // 
-            this.textBoxRateOfThisCurrency.Location = new System.Drawing.Point(508, 53);
+            this.textBoxRateOfThisCurrency.Location = new System.Drawing.Point(495, 51);
             this.textBoxRateOfThisCurrency.Name = "textBoxRateOfThisCurrency";
             this.textBoxRateOfThisCurrency.Size = new System.Drawing.Size(172, 22);
             this.textBoxRateOfThisCurrency.TabIndex = 6;
@@ -109,7 +110,7 @@ namespace LabNet2._2
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(689, 51);
+            this.textBox1.Location = new System.Drawing.Point(673, 51);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(191, 22);
             this.textBox1.TabIndex = 7;
@@ -118,7 +119,7 @@ namespace LabNet2._2
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(686, 9);
+            this.label2.Location = new System.Drawing.Point(670, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(194, 17);
             this.label2.TabIndex = 8;
@@ -128,7 +129,7 @@ namespace LabNet2._2
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(516, 9);
+            this.label3.Location = new System.Drawing.Point(492, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(164, 17);
             this.label3.TabIndex = 9;
@@ -136,7 +137,7 @@ namespace LabNet2._2
             // 
             // textBoxResultOfCalculating
             // 
-            this.textBoxResultOfCalculating.Location = new System.Drawing.Point(914, 51);
+            this.textBoxResultOfCalculating.Location = new System.Drawing.Point(870, 51);
             this.textBoxResultOfCalculating.Name = "textBoxResultOfCalculating";
             this.textBoxResultOfCalculating.Size = new System.Drawing.Size(94, 22);
             this.textBoxResultOfCalculating.TabIndex = 10;
@@ -144,28 +145,36 @@ namespace LabNet2._2
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(911, 9);
+            this.label4.Location = new System.Drawing.Point(870, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 17);
             this.label4.TabIndex = 11;
             this.label4.Text = "Result";
             // 
-            // label5
+            // buttonSaveToDataBase
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(416, 164);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 17);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "label5";
-            this.label5.Click += new System.EventHandler(this.label5_Click_1);
+            this.buttonSaveToDataBase.Location = new System.Drawing.Point(495, 107);
+            this.buttonSaveToDataBase.Name = "buttonSaveToDataBase";
+            this.buttonSaveToDataBase.Size = new System.Drawing.Size(257, 104);
+            this.buttonSaveToDataBase.TabIndex = 12;
+            this.buttonSaveToDataBase.Text = "Save to DataBase";
+            this.buttonSaveToDataBase.UseVisualStyleBackColor = true;
+            this.buttonSaveToDataBase.Click += new System.EventHandler(this.buttonSaveToDataBase_Click);
+            // 
+            // textBoxShowLog
+            // 
+            this.textBoxShowLog.Location = new System.Drawing.Point(396, 252);
+            this.textBoxShowLog.Name = "textBoxShowLog";
+            this.textBoxShowLog.Size = new System.Drawing.Size(536, 22);
+            this.textBoxShowLog.TabIndex = 13;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBoxShowLog);
+            this.Controls.Add(this.buttonSaveToDataBase);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxResultOfCalculating);
             this.Controls.Add(this.label3);
@@ -198,7 +207,8 @@ namespace LabNet2._2
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxResultOfCalculating;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button buttonSaveToDataBase;
+        private System.Windows.Forms.TextBox textBoxShowLog;
     }
 }
 

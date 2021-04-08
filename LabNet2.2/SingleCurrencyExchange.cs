@@ -8,6 +8,7 @@ namespace LabNet2._2
 {
     public class SingleCurrencyExchange
     {
+        public int ID { set; get; }
         public int TimeStamp { set; get; }
         public string nameOfCurrency { set; get; }
         public double exchangeRate { set; get; }
@@ -22,6 +23,10 @@ namespace LabNet2._2
             this.exchangeRate = exchangeRate;
             this.amountToExchange = amount;
             this.resultOfCalculating = result;
+        }
+        public SingleCurrencyExchange()
+        {
+
         }
     }
 }

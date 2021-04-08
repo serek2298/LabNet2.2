@@ -17,9 +17,9 @@ namespace LabNet2._2
 {
     public partial class Form1 : Form
     {
+        RecordsCurrencyExchange dataBase = new RecordsCurrencyExchange();
         public Form1()
         {
-
             InitializeComponent();
             
 
@@ -61,12 +61,9 @@ namespace LabNet2._2
         private void button1_Click(object sender, EventArgs e)
         {
             load();
-            /*var dataBase = new RecordsCurrencyExchange();
+            
 
-            SingleCurrencyExchange single = new SingleCurrencyExchange(5, "USD", 3, 4, 12);
-            dataBase.SingleCurrencyExchanges.Add(single);
-
-            dataBase.SaveChanges();
+            /*
 
             var another = dataBase.SingleCurrencyExchanges.SqlQuery("select * from SingleCurrencyExchanges").ToList<SingleCurrencyExchange>();
             string x="";
@@ -129,6 +126,31 @@ namespace LabNet2._2
 
         private void label5_Click_1(object sender, EventArgs e)
         {
+
+        }
+
+        private void buttonSaveToDataBase_Click(object sender, EventArgs e)
+        {
+            string currency  =  listView1.Items[comboBoxChooseCurrency.SelectedIndex].SubItems[0].Text;
+            string rateOfCurrency = textBoxRateOfThisCurrency.Text;
+            string amountToExchange = textBox1.Text;
+            string resultOfCalculating = textBoxResultOfCalculating.Text;
+
+            SingleCurrencyExchange single = new SingleCurrencyExchange(199, rateOfCurrency, 69, 4, 12);
+            dataBase.SingleCurrencyExchanges.Add(single);
+            dataBase.SaveChanges();
+
+            var another = dataBase.SingleCurrencyExchanges.SqlQuery("select * from SingleCurrencyExchanges where TimeStamp = 199  ").ToList<SingleCurrencyExchange>();
+            string x = "";
+            foreach (var s in another)
+            {
+                x = "   " + s.nameOfCurrency + "     " + s.TimeStamp + "        " + s.exchangeRate;
+                textBoxShowLog.AppendText(x);
+            }
+
+            
+
+            
 
         }
     }
