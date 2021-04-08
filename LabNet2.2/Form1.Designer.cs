@@ -43,11 +43,13 @@ namespace LabNet2._2
             this.label4 = new System.Windows.Forms.Label();
             this.buttonSaveToDataBase = new System.Windows.Forms.Button();
             this.textBoxShowLog = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxtimeStamp = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(42, 39);
+            this.button1.Location = new System.Drawing.Point(42, 9);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(256, 47);
@@ -62,7 +64,7 @@ namespace LabNet2._2
             this.country,
             this.value});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(42, 107);
+            this.listView1.Location = new System.Drawing.Point(42, 148);
             this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(248, 382);
@@ -168,11 +170,30 @@ namespace LabNet2._2
             this.textBoxShowLog.Size = new System.Drawing.Size(536, 22);
             this.textBoxShowLog.TabIndex = 13;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(42, 64);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(83, 17);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Time Stamp";
+            // 
+            // textBoxtimeStamp
+            // 
+            this.textBoxtimeStamp.Location = new System.Drawing.Point(42, 98);
+            this.textBoxtimeStamp.Name = "textBoxtimeStamp";
+            this.textBoxtimeStamp.Size = new System.Drawing.Size(245, 22);
+            this.textBoxtimeStamp.TabIndex = 15;
+            this.textBoxtimeStamp.TextChanged += new System.EventHandler(this.textBoxtimeStamp_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.textBoxtimeStamp);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxShowLog);
             this.Controls.Add(this.buttonSaveToDataBase);
             this.Controls.Add(this.label4);
@@ -209,6 +230,8 @@ namespace LabNet2._2
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonSaveToDataBase;
         private System.Windows.Forms.TextBox textBoxShowLog;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxtimeStamp;
     }
 }
 

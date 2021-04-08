@@ -10,9 +10,10 @@ namespace LabNet2._2
     {
         public string Disclaimer { set; get; }
         public string License { set; get; }
-        public int TimeStamp { set; get; }
+        public int timeStamp { set; get; }
 
         public string Baza { set; get; }
         public  Dictionary<string,decimal> Rates { set; get; }
+
     }
 }

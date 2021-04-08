@@ -18,6 +18,8 @@ namespace LabNet2._2
     public partial class Form1 : Form
     {
         RecordsCurrencyExchange dataBase = new RecordsCurrencyExchange();
+        DateTime currentTime = new DateTime();
+        int timeStamp;
         public Form1()
         {
             InitializeComponent();
@@ -48,10 +50,17 @@ namespace LabNet2._2
             {
                 comboBoxChooseCurrency.Items.Add(item);
             }
-
-            
+            timeStamp = data.timeStamp;
+            currentTime = UnixTimeToDateTime(data.timeStamp);
+            textBoxtimeStamp.Text = UnixTimeToDateTime(data.timeStamp).ToString();
         }
 
+        public DateTime UnixTimeToDateTime(long unixtime)
+        {
+            DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            dtDateTime = dtDateTime.AddSeconds(unixtime).ToLocalTime();
+            return dtDateTime;
+        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -61,18 +70,7 @@ namespace LabNet2._2
         private void button1_Click(object sender, EventArgs e)
         {
             load();
-            
 
-            /*
-
-            var another = dataBase.SingleCurrencyExchanges.SqlQuery("select * from SingleCurrencyExchanges").ToList<SingleCurrencyExchange>();
-            string x="";
-            foreach (var s in another)
-            {
-                 x = " " + s.nameOfCurrency + " " + s.TimeStamp + " " + s.exchangeRate;
-            }
-            label5.Text = x;
-            */
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,10 +111,6 @@ namespace LabNet2._2
             int numberWritten = Int32.Parse(textBox1.Text);
             double exchangeRate = Double.Parse(textBoxRateOfThisCurrency.Text,provider);
             textBoxResultOfCalculating.Text = (numberWritten * exchangeRate).ToString();
-
-                //Items[comboBoxChooseCurrency.SelectedIndex].SubItems[1].Text;
-
-
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -131,26 +125,36 @@ namespace LabNet2._2
 
         private void buttonSaveToDataBase_Click(object sender, EventArgs e)
         {
-            string currency  =  listView1.Items[comboBoxChooseCurrency.SelectedIndex].SubItems[0].Text;
-            string rateOfCurrency = textBoxRateOfThisCurrency.Text;
-            string amountToExchange = textBox1.Text;
-            string resultOfCalculating = textBoxResultOfCalculating.Text;
+            string strCurrency  =  listView1.Items[comboBoxChooseCurrency.SelectedIndex].SubItems[0].Text;
 
-            SingleCurrencyExchange single = new SingleCurrencyExchange(199, rateOfCurrency, 69, 4, 12);
+            NumberFormatInfo provider = new NumberFormatInfo();
+            provider.NumberDecimalSeparator = ".";
+            provider.NumberGroupSeparator = ",";
+
+            int numberWritten = Int32.Parse(textBox1.Text);
+            double exchangeRate = Double.Parse(textBoxRateOfThisCurrency.Text, provider);
+            double result = Double.Parse(textBoxResultOfCalculating.Text, provider);
+
+
+            SingleCurrencyExchange single = new SingleCurrencyExchange(timeStamp, strCurrency, exchangeRate, numberWritten, result);
             dataBase.SingleCurrencyExchanges.Add(single);
             dataBase.SaveChanges();
-
-            var another = dataBase.SingleCurrencyExchanges.SqlQuery("select * from SingleCurrencyExchanges where TimeStamp = 199  ").ToList<SingleCurrencyExchange>();
+            var another = dataBase.SingleCurrencyExchanges.SqlQuery("select * from SingleCurrencyExchanges ").ToList<SingleCurrencyExchange>();
             string x = "";
             foreach (var s in another)
             {
-                x = "   " + s.nameOfCurrency + "     " + s.TimeStamp + "        " + s.exchangeRate;
+                x = "   " + s.nameOfCurrency + "     " + s.timeStamp.ToString() + "        " + s.exchangeRate;
                 textBoxShowLog.AppendText(x);
             }
 
             
 
             
+
+        }
+
+        private void textBoxtimeStamp_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
