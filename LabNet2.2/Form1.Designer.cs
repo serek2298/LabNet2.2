@@ -41,12 +41,13 @@ namespace LabNet2._2
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxResultOfCalculating = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(42, 39);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(256, 47);
             this.button1.TabIndex = 1;
@@ -61,7 +62,7 @@ namespace LabNet2._2
             this.value});
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(42, 107);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(248, 382);
             this.listView1.TabIndex = 2;
@@ -149,11 +150,22 @@ namespace LabNet2._2
             this.label4.TabIndex = 11;
             this.label4.Text = "Result";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(416, 164);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 17);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "label5";
+            this.label5.Click += new System.EventHandler(this.label5_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxResultOfCalculating);
             this.Controls.Add(this.label3);
@@ -164,7 +176,7 @@ namespace LabNet2._2
             this.Controls.Add(this.comboBoxChooseCurrency);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -186,6 +198,7 @@ namespace LabNet2._2
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxResultOfCalculating;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 

@@ -15,7 +15,7 @@ namespace LabNet2._2
         public int amountToExchange { set; get; }
         public double resultOfCalculating { set; get; }
 
-        SingleCurrencyExchange(int time, string name, double exchangeRate, int amount, double result)
+        public SingleCurrencyExchange(int time, string name, double exchangeRate, int amount, double result)
         {
             this.TimeStamp = time;
             this.nameOfCurrency = nameOfCurrency;

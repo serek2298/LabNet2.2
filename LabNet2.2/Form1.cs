@@ -11,6 +11,7 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Globalization;
+using System.Data.Entity;
 
 namespace LabNet2._2
 {
@@ -59,7 +60,22 @@ namespace LabNet2._2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            load();  
+            load();
+            /*var dataBase = new RecordsCurrencyExchange();
+
+            SingleCurrencyExchange single = new SingleCurrencyExchange(5, "USD", 3, 4, 12);
+            dataBase.SingleCurrencyExchanges.Add(single);
+
+            dataBase.SaveChanges();
+
+            var another = dataBase.SingleCurrencyExchanges.SqlQuery("select * from SingleCurrencyExchanges").ToList<SingleCurrencyExchange>();
+            string x="";
+            foreach (var s in another)
+            {
+                 x = " " + s.nameOfCurrency + " " + s.TimeStamp + " " + s.exchangeRate;
+            }
+            label5.Text = x;
+            */
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -103,6 +119,16 @@ namespace LabNet2._2
 
                 //Items[comboBoxChooseCurrency.SelectedIndex].SubItems[1].Text;
 
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click_1(object sender, EventArgs e)
+        {
 
         }
     }
