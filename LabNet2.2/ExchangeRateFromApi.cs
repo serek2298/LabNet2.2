@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LabNet2._2
 {
-    class Student
+    class ExchangeRateFromApi
     {
         public string Disclaimer { set; get; }
         public string License { set; get; }

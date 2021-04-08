@@ -35,7 +35,7 @@ namespace LabNet2._2
             string json = await httpClient.GetStringAsync(call);
             Console.WriteLine(json);
            
-            var data = JsonConvert.DeserializeObject<Student>(json);
+            var data = JsonConvert.DeserializeObject<ExchangeRateFromApi>(json);
 
             foreach (var x in data.Rates)
             {
