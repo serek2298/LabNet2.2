@@ -107,6 +107,7 @@ namespace LabNet2._2
         /// <param name="e"></param>
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
+
             NumberFormatInfo provider = new NumberFormatInfo();
             provider.NumberDecimalSeparator = ",";
             provider.NumberGroupSeparator = " ";
@@ -153,7 +154,7 @@ namespace LabNet2._2
 
         private void comboBoxToFindCurrency_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string currencyName = listView1.Items[comboBoxChooseCurrency.SelectedIndex].SubItems[0].Text;
+            string currencyName = listView1.Items[comboBoxToFindCurrency.SelectedIndex].SubItems[0].Text;
             dataGridView2.DataSource = dataBase.SingleCurrencyExchanges.SqlQuery("select * from SingleCurrencyExchanges where nameOfCurrency = @p0", currencyName).ToList<SingleCurrencyExchange>();
         }
     }
