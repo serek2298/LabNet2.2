@@ -139,7 +139,7 @@ namespace LabNet2._2
             SingleCurrencyExchange single = new SingleCurrencyExchange(timeStamp, strCurrency, exchangeRate, numberWritten, result);
             dataBase.SingleCurrencyExchanges.Add(single);
             dataBase.SaveChanges();
-            var another = dataBase.SingleCurrencyExchanges.SqlQuery("select * from SingleCurrencyExchanges ").ToList<SingleCurrencyExchange>();
+            var another = dataBase.SingleCurrencyExchanges.SqlQuery("select * from SingleCurrencyExchanges").ToList<SingleCurrencyExchange>();
             string x = "";
             foreach (var s in another)
             {
@@ -156,6 +156,16 @@ namespace LabNet2._2
         private void textBoxtimeStamp_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void buttonToShowHistory_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = dataBase.SingleCurrencyExchanges.ToList<SingleCurrencyExchange>();
         }
     }
 }
