@@ -73,6 +73,9 @@ namespace LabNet2._2
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listView1.SelectedItems.Count == 0) return;
+
+            comboBoxChooseCurrency.Text = this.listView1.SelectedItems[0].Text;
 
         }
 
@@ -105,10 +108,10 @@ namespace LabNet2._2
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
             NumberFormatInfo provider = new NumberFormatInfo();
-            provider.NumberDecimalSeparator = ".";
-            provider.NumberGroupSeparator = ",";
+            provider.NumberDecimalSeparator = ",";
+            provider.NumberGroupSeparator = " ";
             int numberWritten = Int32.Parse(textBox1.Text);
-            double exchangeRate = Double.Parse(textBoxRateOfThisCurrency.Text,provider);
+            double exchangeRate = float.Parse(textBoxRateOfThisCurrency.Text,provider);
             textBoxResultOfCalculating.Text = (numberWritten * exchangeRate).ToString();
         }
 
@@ -119,11 +122,11 @@ namespace LabNet2._2
             string strCurrency  =  listView1.Items[comboBoxChooseCurrency.SelectedIndex].SubItems[0].Text;
 
             NumberFormatInfo provider = new NumberFormatInfo();
-            provider.NumberDecimalSeparator = ".";
-            provider.NumberGroupSeparator = ",";
+            provider.NumberDecimalSeparator = ",";
+            provider.NumberGroupSeparator = " ";
 
             int numberWritten = Int32.Parse(textBox1.Text);
-            double exchangeRate = Double.Parse(textBoxRateOfThisCurrency.Text, provider);
+            double exchangeRate = Double.Parse(textBoxRateOfThisCurrency.Text.ToString(), provider);
             double result = Double.Parse(textBoxResultOfCalculating.Text, provider);
 
 
