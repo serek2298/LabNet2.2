@@ -23,8 +23,6 @@ namespace LabNet2._2
         public Form1()
         {
             InitializeComponent();
-            
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -55,7 +53,11 @@ namespace LabNet2._2
             currentTime = UnixTimeToDateTime(data.timeStamp);
             textBoxtimeStamp.Text = UnixTimeToDateTime(data.timeStamp).ToString();
         }
-
+        /// <summary>
+        /// This function allow convert unix time - int to available date to read by human
+        /// </summary>
+        /// <param name="unixtime"></param>
+        /// <returns></returns>
         public DateTime UnixTimeToDateTime(long unixtime)
         {
             DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
@@ -63,15 +65,10 @@ namespace LabNet2._2
             return dtDateTime;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+ 
         private void button1_Click(object sender, EventArgs e)
         {
             load();
-
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -79,10 +76,7 @@ namespace LabNet2._2
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void comboBoxChooseCurrency_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -103,7 +97,11 @@ namespace LabNet2._2
         {
 
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
             NumberFormatInfo provider = new NumberFormatInfo();
@@ -114,15 +112,7 @@ namespace LabNet2._2
             textBoxResultOfCalculating.Text = (numberWritten * exchangeRate).ToString();
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click_1(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void buttonSaveToDataBase_Click(object sender, EventArgs e)
         {
@@ -137,10 +127,9 @@ namespace LabNet2._2
             double result = Double.Parse(textBoxResultOfCalculating.Text, provider);
 
 
-            SingleCurrencyExchange single = new SingleCurrencyExchange(timeStamp, strCurrency, exchangeRate, numberWritten, result);
-            dataBase.SingleCurrencyExchanges.Add(single);
-            dataBase.SaveChanges();
-            var another = dataBase.SingleCurrencyExchanges.SqlQuery("select * from SingleCurrencyExchanges").ToList<SingleCurrencyExchange>();
+            SingleCurrencyExchange singleRecord = new SingleCurrencyExchange(timeStamp, strCurrency, exchangeRate, numberWritten, result);
+            dataBase.SingleCurrencyExchanges.Add(singleRecord);
+            dataBase.SaveChanges();         
 
         }
 
@@ -163,8 +152,6 @@ namespace LabNet2._2
         {
             string currencyName = listView1.Items[comboBoxChooseCurrency.SelectedIndex].SubItems[0].Text;
             dataGridView2.DataSource = dataBase.SingleCurrencyExchanges.SqlQuery("select * from SingleCurrencyExchanges where nameOfCurrency = @p0", currencyName).ToList<SingleCurrencyExchange>();
-
-           // dataGridView2.DataSource = dataBase.SingleCurrencyExchanges.ToList<SingleCurrencyExchange>();
         }
     }
 }

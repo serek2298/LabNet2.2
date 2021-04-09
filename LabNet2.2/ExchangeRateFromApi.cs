@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace LabNet2._2
 {
+    /// <summary>
+    /// this class allow us to fetch and save data to this fields
+    /// </summary>
     class ExchangeRateFromApi
     {
         public string Disclaimer { set; get; }

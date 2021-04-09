@@ -8,6 +8,8 @@ namespace LabNet2._2
 {
     public class SingleCurrencyExchange
     {
+        // dlaczego dodajac w ten sposob ID, to wszystko dziala?
+        //dlaczego nie musimy dodac [id] czy cos takiego
         public int ID { set; get; }
         public int timeStamp { set; get; }
         public string nameOfCurrency { set; get; }
