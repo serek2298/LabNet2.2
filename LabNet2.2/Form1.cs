@@ -12,13 +12,19 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.Globalization;
 using System.Data.Entity;
-
+//migrowanie bazy danych:
+//https://docs.microsoft.com/pl-pl/ef/core/managing-schemas/migrations/?tabs=vs&fbclid=IwAR3kkGe0DaTLehQ7WA55zgRgDGHf6Jl1A1H3_BTB6WZT_EOafzW8cvUOJu0
 namespace LabNet2._2
 {
     public partial class Form1 : Form
     {
+        /// <summary>
+        /// inicjalizacja bazy danych
+        /// </summary>
         RecordsCurrencyExchange dataBase = new RecordsCurrencyExchange();
-        DateTime currentTime = new DateTime();
+        /// <summary>
+        /// zmienna do przechowania obecnego timestampu w kursach walut
+        /// </summary>
         int timeStamp;
         public Form1()
         {
@@ -29,28 +35,31 @@ namespace LabNet2._2
         {
 
         }
+        /// <summary>
+        /// Funkcja ktora odpowiada za calosc pobierania jsona z zewnetrznego api
+        /// </summary>
         public async void load()
         {
             string call = "https://openexchangerates.org/api/latest.json?app_id=1c20a8ea81d5429cbf2fdc8fa15816a7";
             HttpClient httpClient = new HttpClient();
             string json = await httpClient.GetStringAsync(call);
             Console.WriteLine(json);
-           
+            // deserializacja
             var data = JsonConvert.DeserializeObject<ExchangeRateFromApi>(json);
-
+            //wypelnianie list view
             foreach (var x in data.Rates)
             {
                 ListViewItem a = new ListViewItem(x.Key);
                 a.SubItems.Add(x.Value.ToString());
                 listView1.Items.Add(a);
             }
+            //wypelnianie
             foreach(var item in data.Rates.Keys)
             {
                 comboBoxChooseCurrency.Items.Add(item);
                 comboBoxToFindCurrency.Items.Add(item);
             }
             timeStamp = data.timeStamp;
-            currentTime = UnixTimeToDateTime(data.timeStamp);
             textBoxtimeStamp.Text = UnixTimeToDateTime(data.timeStamp).ToString();
         }
         /// <summary>
@@ -65,7 +74,11 @@ namespace LabNet2._2
             return dtDateTime;
         }
 
- 
+        /// <summary>
+        /// ten przycisk wywoluje zaciaganie z bazy danych
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             load();
@@ -107,9 +120,10 @@ namespace LabNet2._2
         /// <param name="e"></param>
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
-
+            //Uwaga z tym, ja uzywam eng system wiec u mnie kropka
+            //jesli uzywasz polskiego to ,
             NumberFormatInfo provider = new NumberFormatInfo();
-            provider.NumberDecimalSeparator = ",";
+            provider.NumberDecimalSeparator = ".";
             provider.NumberGroupSeparator = " ";
             int numberWritten = Int32.Parse(textBox1.Text);
             double exchangeRate = float.Parse(textBoxRateOfThisCurrency.Text,provider);
@@ -123,16 +137,17 @@ namespace LabNet2._2
             string strCurrency  =  listView1.Items[comboBoxChooseCurrency.SelectedIndex].SubItems[0].Text;
 
             NumberFormatInfo provider = new NumberFormatInfo();
-            provider.NumberDecimalSeparator = ",";
+            provider.NumberDecimalSeparator = ".";
             provider.NumberGroupSeparator = " ";
 
             int numberWritten = Int32.Parse(textBox1.Text);
             double exchangeRate = Double.Parse(textBoxRateOfThisCurrency.Text.ToString(), provider);
             double result = Double.Parse(textBoxResultOfCalculating.Text, provider);
 
-
+            //konstruktor
             SingleCurrencyExchange singleRecord = new SingleCurrencyExchange(timeStamp, strCurrency, exchangeRate, numberWritten, result);
             dataBase.SingleCurrencyExchanges.Add(singleRecord);
+            //operacje na bazie danych
             dataBase.SaveChanges();         
 
         }

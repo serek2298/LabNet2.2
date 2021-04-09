@@ -8,6 +8,7 @@ namespace LabNet2._2
 {
     /// <summary>
     /// this class allow us to fetch and save data to this fields
+    /// ten format jest znany z gory
     /// </summary>
     class ExchangeRateFromApi
     {
