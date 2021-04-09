@@ -19,7 +19,7 @@ namespace LabNet2._2
         public SingleCurrencyExchange(int time, string name, double exchangeRate, int amount, double result)
         {
             this.timeStamp = time;
-            this.nameOfCurrency = nameOfCurrency;
+            this.nameOfCurrency = name;
             this.exchangeRate = exchangeRate;
             this.amountToExchange = amount;
             this.resultOfCalculating = result;

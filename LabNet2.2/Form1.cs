@@ -49,6 +49,7 @@ namespace LabNet2._2
             foreach(var item in data.Rates.Keys)
             {
                 comboBoxChooseCurrency.Items.Add(item);
+                comboBoxToFindCurrency.Items.Add(item);
             }
             timeStamp = data.timeStamp;
             currentTime = UnixTimeToDateTime(data.timeStamp);
@@ -140,16 +141,6 @@ namespace LabNet2._2
             dataBase.SingleCurrencyExchanges.Add(single);
             dataBase.SaveChanges();
             var another = dataBase.SingleCurrencyExchanges.SqlQuery("select * from SingleCurrencyExchanges").ToList<SingleCurrencyExchange>();
-            string x = "";
-            foreach (var s in another)
-            {
-                x = "   " + s.nameOfCurrency + "     " + s.timeStamp.ToString() + "        " + s.exchangeRate;
-                textBoxShowLog.AppendText(x);
-            }
-
-            
-
-            
 
         }
 
@@ -166,6 +157,14 @@ namespace LabNet2._2
         private void buttonToShowHistory_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = dataBase.SingleCurrencyExchanges.ToList<SingleCurrencyExchange>();
+        }
+
+        private void comboBoxToFindCurrency_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string currencyName = listView1.Items[comboBoxChooseCurrency.SelectedIndex].SubItems[0].Text;
+            dataGridView2.DataSource = dataBase.SingleCurrencyExchanges.SqlQuery("select * from SingleCurrencyExchanges where nameOfCurrency = @p0", currencyName).ToList<SingleCurrencyExchange>();
+
+           // dataGridView2.DataSource = dataBase.SingleCurrencyExchanges.ToList<SingleCurrencyExchange>();
         }
     }
 }

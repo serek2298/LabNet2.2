@@ -43,26 +43,35 @@ namespace LabNet2._2
             this.textBoxResultOfCalculating = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonSaveToDataBase = new System.Windows.Forms.Button();
-            this.textBoxShowLog = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxtimeStamp = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buttonToShowHistory = new System.Windows.Forms.Button();
-            this.recordsCurrencyExchangeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.recordsCurrencyExchangeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.form1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.singleCurrencyExchangeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timeStampDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameOfCurrencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.exchangeRateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountToExchangeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resultOfCalculatingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.singleCurrencyExchangeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonToShowHistory = new System.Windows.Forms.Button();
+            this.recordsCurrencyExchangeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.recordsCurrencyExchangeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.form1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBoxToFindCurrency = new System.Windows.Forms.ComboBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeStampDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameOfCurrencyDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exchangeRateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountToExchangeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultOfCalculatingDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.singleCurrencyExchangeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recordsCurrencyExchangeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recordsCurrencyExchangeBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.form1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.singleCurrencyExchangeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -181,13 +190,6 @@ namespace LabNet2._2
             this.buttonSaveToDataBase.UseVisualStyleBackColor = true;
             this.buttonSaveToDataBase.Click += new System.EventHandler(this.buttonSaveToDataBase_Click);
             // 
-            // textBoxShowLog
-            // 
-            this.textBoxShowLog.Location = new System.Drawing.Point(396, 252);
-            this.textBoxShowLog.Name = "textBoxShowLog";
-            this.textBoxShowLog.Size = new System.Drawing.Size(536, 22);
-            this.textBoxShowLog.TabIndex = 13;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -219,40 +221,14 @@ namespace LabNet2._2
             this.amountToExchangeDataGridViewTextBoxColumn,
             this.resultOfCalculatingDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.singleCurrencyExchangeBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(396, 293);
+            this.dataGridView1.Location = new System.Drawing.Point(368, 219);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(620, 210);
+            this.dataGridView1.Size = new System.Drawing.Size(818, 210);
             this.dataGridView1.TabIndex = 16;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // buttonToShowHistory
-            // 
-            this.buttonToShowHistory.Location = new System.Drawing.Point(677, 98);
-            this.buttonToShowHistory.Name = "buttonToShowHistory";
-            this.buttonToShowHistory.Size = new System.Drawing.Size(287, 104);
-            this.buttonToShowHistory.TabIndex = 17;
-            this.buttonToShowHistory.Text = "Show History";
-            this.buttonToShowHistory.UseVisualStyleBackColor = true;
-            this.buttonToShowHistory.Click += new System.EventHandler(this.buttonToShowHistory_Click);
-            // 
-            // recordsCurrencyExchangeBindingSource
-            // 
-            this.recordsCurrencyExchangeBindingSource.DataSource = typeof(LabNet2._2.RecordsCurrencyExchange);
-            // 
-            // recordsCurrencyExchangeBindingSource1
-            // 
-            this.recordsCurrencyExchangeBindingSource1.DataSource = typeof(LabNet2._2.RecordsCurrencyExchange);
-            // 
-            // form1BindingSource
-            // 
-            this.form1BindingSource.DataSource = typeof(LabNet2._2.Form1);
-            // 
-            // singleCurrencyExchangeBindingSource
-            // 
-            this.singleCurrencyExchangeBindingSource.DataSource = typeof(LabNet2._2.SingleCurrencyExchange);
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -308,16 +284,137 @@ namespace LabNet2._2
             this.resultOfCalculatingDataGridViewTextBoxColumn.ReadOnly = true;
             this.resultOfCalculatingDataGridViewTextBoxColumn.Width = 125;
             // 
+            // singleCurrencyExchangeBindingSource
+            // 
+            this.singleCurrencyExchangeBindingSource.DataSource = typeof(LabNet2._2.SingleCurrencyExchange);
+            // 
+            // buttonToShowHistory
+            // 
+            this.buttonToShowHistory.Location = new System.Drawing.Point(677, 98);
+            this.buttonToShowHistory.Name = "buttonToShowHistory";
+            this.buttonToShowHistory.Size = new System.Drawing.Size(287, 104);
+            this.buttonToShowHistory.TabIndex = 17;
+            this.buttonToShowHistory.Text = "Show History";
+            this.buttonToShowHistory.UseVisualStyleBackColor = true;
+            this.buttonToShowHistory.Click += new System.EventHandler(this.buttonToShowHistory_Click);
+            // 
+            // recordsCurrencyExchangeBindingSource
+            // 
+            this.recordsCurrencyExchangeBindingSource.DataSource = typeof(LabNet2._2.RecordsCurrencyExchange);
+            // 
+            // recordsCurrencyExchangeBindingSource1
+            // 
+            this.recordsCurrencyExchangeBindingSource1.DataSource = typeof(LabNet2._2.RecordsCurrencyExchange);
+            // 
+            // form1BindingSource
+            // 
+            this.form1BindingSource.DataSource = typeof(LabNet2._2.Form1);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(365, 464);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(173, 17);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Find By Name of Currency";
+            // 
+            // comboBoxToFindCurrency
+            // 
+            this.comboBoxToFindCurrency.FormattingEnabled = true;
+            this.comboBoxToFindCurrency.Location = new System.Drawing.Point(368, 504);
+            this.comboBoxToFindCurrency.Name = "comboBoxToFindCurrency";
+            this.comboBoxToFindCurrency.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxToFindCurrency.TabIndex = 19;
+            this.comboBoxToFindCurrency.SelectedIndexChanged += new System.EventHandler(this.comboBoxToFindCurrency_SelectedIndexChanged);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn1,
+            this.timeStampDataGridViewTextBoxColumn1,
+            this.nameOfCurrencyDataGridViewTextBoxColumn1,
+            this.exchangeRateDataGridViewTextBoxColumn1,
+            this.amountToExchangeDataGridViewTextBoxColumn1,
+            this.resultOfCalculatingDataGridViewTextBoxColumn1});
+            this.dataGridView2.DataSource = this.singleCurrencyExchangeBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(575, 481);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(553, 150);
+            this.dataGridView2.TabIndex = 20;
+            // 
+            // iDDataGridViewTextBoxColumn1
+            // 
+            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
+            this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // timeStampDataGridViewTextBoxColumn1
+            // 
+            this.timeStampDataGridViewTextBoxColumn1.DataPropertyName = "timeStamp";
+            this.timeStampDataGridViewTextBoxColumn1.HeaderText = "timeStamp";
+            this.timeStampDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.timeStampDataGridViewTextBoxColumn1.Name = "timeStampDataGridViewTextBoxColumn1";
+            this.timeStampDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.timeStampDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // nameOfCurrencyDataGridViewTextBoxColumn1
+            // 
+            this.nameOfCurrencyDataGridViewTextBoxColumn1.DataPropertyName = "nameOfCurrency";
+            this.nameOfCurrencyDataGridViewTextBoxColumn1.HeaderText = "nameOfCurrency";
+            this.nameOfCurrencyDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.nameOfCurrencyDataGridViewTextBoxColumn1.Name = "nameOfCurrencyDataGridViewTextBoxColumn1";
+            this.nameOfCurrencyDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.nameOfCurrencyDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // exchangeRateDataGridViewTextBoxColumn1
+            // 
+            this.exchangeRateDataGridViewTextBoxColumn1.DataPropertyName = "exchangeRate";
+            this.exchangeRateDataGridViewTextBoxColumn1.HeaderText = "exchangeRate";
+            this.exchangeRateDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.exchangeRateDataGridViewTextBoxColumn1.Name = "exchangeRateDataGridViewTextBoxColumn1";
+            this.exchangeRateDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.exchangeRateDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // amountToExchangeDataGridViewTextBoxColumn1
+            // 
+            this.amountToExchangeDataGridViewTextBoxColumn1.DataPropertyName = "amountToExchange";
+            this.amountToExchangeDataGridViewTextBoxColumn1.HeaderText = "amountToExchange";
+            this.amountToExchangeDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.amountToExchangeDataGridViewTextBoxColumn1.Name = "amountToExchangeDataGridViewTextBoxColumn1";
+            this.amountToExchangeDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.amountToExchangeDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // resultOfCalculatingDataGridViewTextBoxColumn1
+            // 
+            this.resultOfCalculatingDataGridViewTextBoxColumn1.DataPropertyName = "resultOfCalculating";
+            this.resultOfCalculatingDataGridViewTextBoxColumn1.HeaderText = "resultOfCalculating";
+            this.resultOfCalculatingDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.resultOfCalculatingDataGridViewTextBoxColumn1.Name = "resultOfCalculatingDataGridViewTextBoxColumn1";
+            this.resultOfCalculatingDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.resultOfCalculatingDataGridViewTextBoxColumn1.Width = 125;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(1227, 642);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.comboBoxToFindCurrency);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonToShowHistory);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBoxtimeStamp);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBoxShowLog);
             this.Controls.Add(this.buttonSaveToDataBase);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxResultOfCalculating);
@@ -334,10 +431,11 @@ namespace LabNet2._2
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.singleCurrencyExchangeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recordsCurrencyExchangeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recordsCurrencyExchangeBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.form1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.singleCurrencyExchangeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,7 +455,6 @@ namespace LabNet2._2
         private System.Windows.Forms.TextBox textBoxResultOfCalculating;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonSaveToDataBase;
-        private System.Windows.Forms.TextBox textBoxShowLog;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxtimeStamp;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -372,6 +469,15 @@ namespace LabNet2._2
         private System.Windows.Forms.BindingSource recordsCurrencyExchangeBindingSource;
         private System.Windows.Forms.BindingSource recordsCurrencyExchangeBindingSource1;
         private System.Windows.Forms.BindingSource form1BindingSource;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox comboBoxToFindCurrency;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timeStampDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameOfCurrencyDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn exchangeRateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountToExchangeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resultOfCalculatingDataGridViewTextBoxColumn1;
     }
 }
 
